@@ -11,29 +11,29 @@
             participant browser
             participant server
 
-            browser->>server: POST https://fullstack-exampleapp.herokuapp.com/new_note
+            browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
             activate server
             Note right of browser: user input and button click
             server-->>browser: HTTP status code 302
             deactivate server
             Note right of browser: Server asks browser for a new GET request
 
-            browser->>server: GET https://fullstack-exampleapp.herokuapp.com/notes 
+            browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes 
             activate server
             server-->>browser: reloads the notes page
             deactivate server
 
-            browser->>server: GET https://fullstack-exampleapp.herokuapp.com/main.css 
+            browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css 
             activate server 
             server-->>browser: the css file 
             deactivate server 
 
-            browser->>server: GET https://fullstack-exampleapp.herokuapp.com/main.js 
+            browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js 
             activate server 
             server-->>browser: the JavaScript file 
             deactivate server 
 
-            browser->>server: GET https://fullstack-exampleapp.herokuapp.com/data.json 
+            browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json 
             activate server 
             server-->>browser: the JSON file 
             deactivate server 
