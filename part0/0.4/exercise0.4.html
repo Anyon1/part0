@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre class="mermaid">
+        sequenceDiagram
+            participant browser
+            participant server
+
+            browser->>server: POST https://fullstack-exampleapp.herokuapp.com/new_note
+            activate server
+            server-->>browser: HTTP status code 302
+            Note right of browser: This is a URL redirect
+            </pre>
+            <script type="module">
+                import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            </script>
+</body>
+</html>
