@@ -15,14 +15,14 @@
         }
         Wartungsart {
             int VorgangsNr PK
-            date Datum 
-            int Wartungscode
-            int TechnikerID FK
-            int WartungID FK
         }
         Wartung {
             int WartungID PK
             int MaschinenNr FK
+            date Datum 
+            int Wartungscode
+            int TechnikerID FK
+            int WartungID FK
         }
         Maschine {
             int MaschinenNr PK
