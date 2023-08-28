@@ -24,7 +24,6 @@
     Tierart {
         int Tierartnummer PK
         varchar(45) name
-        int Personalnummer FK
         int GehegeNr FK
     }
     Pfleger {
@@ -49,11 +48,12 @@
     Futtermischung {
         int FutterID PK
         varchar(45) Name
-        int FuttermittelID FK
+        int Tiernummer FK
     }
     Futtermittel {
         int FuttermittelID PK
         varchar(45) Name
+        int LieferantID FK
     }
     Lieferant {
         int LieferantenID PK
@@ -69,7 +69,7 @@
     Tierart ||--|{ Exemplare : hat
     Exemplare ||--|| Futtermischung : bekommt
     Futtermittel ||--|{ Futtermischung : verwendet
-    Lieferant ||--|| Futtermischung : liefert
+    Lieferant ||--|| Futtermittel : liefert
     </pre>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
