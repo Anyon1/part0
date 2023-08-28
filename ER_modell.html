@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre class="mermaid">
+        erDiagram
+    Zoo ||--|{ ZooTierart : hat
+    Zoo {
+        int ZooID PK
+        varchar(45) name
+        varchar(45) strasse
+        int hausnummer
+        varchar(45) PLZ
+        varchar(45) Ort
+    }
+    ZooTierart {
+        int ZooID PK, FK
+        int Tierartnummer PK, FK
+    }
+    Tierart {
+        int Tierartnummer PK
+        varchar(45) name
+        int Personalnummer FK
+        int GehegeNr FK
+    }
+    Pfleger {
+        int Personalnummer PK
+        varchar(45) vorname
+        varchar(45) nachname
+        date gebDatum
+        int gehalt
+        int Tierartnummer FK
+    }
+    Gehege {
+        int gehegeNr PK
+        varchar(45) bezeichnung
+        decimal flaeche
+    }
+    Exemplare {
+        int Tiernummer PK
+        int alter
+        varchar(45) geschlecht
+        int Tierartnummer FK
+    }
+    Futtermischung {
+        int FutterID PK
+        varchar(45) Name
+        int FuttermittelID FK
+    }
+    Futtermittel {
+        int FuttermittelID PK
+        varchar(45) Name
+    }
+    Lieferant {
+        int LieferantenID PK
+        varchar(45) Name
+        varchar(45) strasse
+        int hausnummer
+        varchar(45) PLZ
+        varchar(45) Ort
+    }
+    Tierart ||--|{ ZooTierart : hat
+    Tierart ||--|{ Pfleger : betreut
+    Tierart ||--|| Gehege : besitzt
+    Tierart ||--|{ Exemplare : hat
+    Exemplare ||--|| Futtermischung : bekommt
+    Futtermittel ||--|{ Futtermischung : verwendet
+    Lieferant ||--|| Futtermischung : liefert
+    </pre>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    </script>
+</body>
+</html>
